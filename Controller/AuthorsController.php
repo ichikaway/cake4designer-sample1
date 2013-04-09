@@ -8,6 +8,11 @@ App::uses('AppController', 'Controller');
 class AuthorsController extends AppController {
 
 /**
+ * @var string
+ */
+	public $ext = '.html';
+
+/**
  *  Layout
  *
  * @var string
