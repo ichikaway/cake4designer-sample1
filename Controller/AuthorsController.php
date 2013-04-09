@@ -17,7 +17,7 @@ class AuthorsController extends AppController {
  *
  * @var string
  */
-	public $layout = 'bootstrap';
+	public $layout = false;
 
 /**
  * Helpers
