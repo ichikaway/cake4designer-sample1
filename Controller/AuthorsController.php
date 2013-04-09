@@ -7,6 +7,7 @@ App::uses('AppController', 'Controller');
  */
 class AuthorsController extends AppController {
 
+
 /**
  *  Layout
  *
@@ -26,6 +27,14 @@ class AuthorsController extends AppController {
  * @var array
  */
 	public $components = array('Session');
+
+	public function beforeFilter() {
+		// app/Viewからの相対パスを指定
+		// Cakeの中で必ずapp/Viewのパスが使われるため
+		// 既存のviewPathの中にはコントローラ名(Authorsなど)が入る（パスは入らない）
+		$this->viewPath = '../webroot/'. $this->viewPath;
+	}
+
 /**
  * index method
  *
