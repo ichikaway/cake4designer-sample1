@@ -22,6 +22,10 @@ class Author extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'number' => array(
+				'rule' => array('minLength', 4),
+				'message' => '4文字以上でご記入ください',
+			)
 		),
 	);
 
