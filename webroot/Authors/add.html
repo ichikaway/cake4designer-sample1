@@ -70,26 +70,25 @@
 
 <div class="row-fluid">
 	<div class="span9">
-		<?php echo $this->BootstrapForm->create('Author', array('class' => 'form-horizontal'));?>
-			<fieldset>
-				<legend><?php echo __('Add %s', __('Author')); ?></legend>
-				<?php
-				echo $this->BootstrapForm->input('name', array(
-					'required' => 'required',
-					'helpInline' => '<span class="label label-important">' . __('Required') . '</span>&nbsp;')
-				);
-				?>
-				<?php echo $this->BootstrapForm->submit(__('Submit'));?>
-			</fieldset>
-		<?php echo $this->BootstrapForm->end();?>
+        <?php echo $this->BootstrapForm->create('Author', array('class' => 'form-horizontal'));?>
+            <fieldset>
+            <legend>Add Author</legend>
+            <div class="control-group">
+                <label for="AuthorName" class="control-label">Name</label>
+                <div class="controls"><input name="data[Author][name]"  maxlength="45" type="text" id="AuthorName" value="<?php echo h( $this->request->data('Author.name') ); ?>"><span class="help-inline"><span class="label label-important">Required</span>&nbsp;</span></div></div>
+                <?php echo h(  Hash::get($this->validationErrors, 'Author.name.0') ); //エラー文言表示 ?>
+                <div class="form-actions"><button type="submit" class="btn">Submit</button></div>
+            </fieldset>
+        </form>
+
 	</div>
 	<div class="span3">
 		<div class="well" style="padding: 8px 0; margin-top:8px;">
 		<ul class="nav nav-list">
-			<li class="nav-header"><?php echo __('Actions'); ?></li>
-			<li><?php echo $this->Html->link(__('List %s', __('Authors')), array('action' => 'index'));?></li>
-			<li><?php echo $this->Html->link(__('List %s', __('Posts')), array('controller' => 'posts', 'action' => 'index')); ?></li>
-			<li><?php echo $this->Html->link(__('New %s', __('Post')), array('controller' => 'posts', 'action' => 'add')); ?></li>
+            <li class="nav-header">Actions</li>
+            <li><a href="/ichi/cake/caketest1/authors/">List Authors</a></li>
+            <li><a href="/ichi/cake/caketest1/posts/">List Posts</a></li>
+            <li><a href="/ichi/cake/caketest1/posts/add">New Post</a></li>
 		</ul>
 		</div>
 	</div>
