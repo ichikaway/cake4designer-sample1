@@ -40,4 +40,14 @@ class AppController extends Controller {
 		'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
 		'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
 	);
+
+	/**
+	 * index actionの場合、最後のスラッシュが削除されるため、強制的に付与
+	 */
+	public function beforeRedirect($url, $status, $exit) {
+		if(is_array($url) && $url['action'] === 'index') {
+			$url = Router::url($url, true) . '/';
+		}
+		return compact('url', 'status', 'exit');
+	}
 }
